@@ -1,5 +1,5 @@
-pagseguro
-=========
+Módulo Pagseguro
+================
 
 Módulo do Prestashop para pagamentos via PagSeguro.
 
@@ -13,8 +13,20 @@ Features
 Requisitos
 ----------
 
-* Ativação da API de pagamentos no sistema Pagseguro
-* Ativação de retorno e notificações no sistema Pagseguro
+* Ativação da API de pagamentos no sistema do Pagseguro
+* Ativação de retorno e notificações no sistema do Pagseguro
+* Ativação do Retorno do ID da Transação no sistema do Pagseguro
 * Token de segurança
 * Biblioteca CURL
 * PHP 5.3 (ou superior)
+* CronJob (Recomendado)
+
+Observações
+------------
+
+> Por conta do fluxo de pagamento da API a associação entre o pedido (loja) e a transação (Pagseguro)
+> acontece de maneira frágil que depende do retorno do cliente a loja.
+> Por isso foi criei uma rotina que deve ser acionada periodicamente (1 vez por dia no minimo), ela busca
+> todas as transações via API e relaciona aos pedidos do Prestashop.
+
+> O Nome do parametro da transação deve ser transaction_id (Configurável no Sistema do Pagseguro)
