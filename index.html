@@ -53,10 +53,17 @@
 <blockquote>
 <p>Por conta do fluxo de pagamento da API o relacionamento entre o pedido (loja) e a transação (Pagseguro)
 acontece de maneira frágil que depende do retorno do cliente a loja.
-Por isso foi criei uma rotina que deve ser acionada periodicamente (1 vez por dia no minimo), ela busca
+Por isso criei uma rotina que deve ser acionada periodicamente (1 vez por dia no minimo), ela busca
 todas as transações via API e relaciona aos pedidos do Prestashop.</p>
 
 <p>O Nome do parametro da transação deve ser transaction_id (Configurável no Sistema do Pagseguro)</p>
+</blockquote>
+
+<h2>Observação Importante</h2>
+
+<blockquote>
+<p>Ao fazer o download o github adiciona um prefixo ou sufixo ao nome do arquivo zip ou tar.gz.
+Logo que você baixar o arquivo renomeie-o para pagseguro.zip ou pagseguro.tar.gz</p>
 </blockquote>
       </section>
     </div>
