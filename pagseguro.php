@@ -49,7 +49,7 @@ class pagseguro extends PaymentModule {
     public function __construct() {
         $this->name = 'pagseguro';
         $this->tab = 'payments_gateways';
-        $this->version = '2.5 Beta';
+        $this->version = '3.0 Beta';
 
         $this->currencies = true;
         $this->currencies_mode = 'radio';
