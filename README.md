@@ -30,3 +30,9 @@ Observações
 > todas as transações via API e relaciona aos pedidos do Prestashop.
 
 > O Nome do parametro da transação deve ser transaction_id (Configurável no Sistema do Pagseguro)
+
+Observação Importante
+---------------------
+
+> Ao fazer o download o github adiciona prefixo ou sufixos ao nome do arquivo zip ou tar.gz.
+> Logo que você baixar o arquivo renomeie-o para pagseguro.zip ou pagseguro.tar.gz
