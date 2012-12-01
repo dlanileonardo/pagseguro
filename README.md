@@ -26,7 +26,7 @@ Observações
 
 > Por conta do fluxo de pagamento da API o relacionamento entre o pedido (loja) e a transação (Pagseguro)
 > acontece de maneira frágil que depende do retorno do cliente a loja.
-> Por isso foi criei uma rotina que deve ser acionada periodicamente (1 vez por dia no minimo), ela busca
+> Por isso criei uma rotina que deve ser acionada periodicamente (1 vez por dia no minimo), ela busca
 > todas as transações via API e relaciona aos pedidos do Prestashop.
 
 > O Nome do parametro da transação deve ser transaction_id (Configurável no Sistema do Pagseguro)
