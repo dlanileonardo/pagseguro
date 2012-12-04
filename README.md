@@ -1,7 +1,7 @@
 Módulo Pagseguro
 ================
 
-Módulo do Prestashop para pagamentos via PagSeguro.
+Módulo do Prestashop para pagamentos via PagSeguro. (Open Source)
 
 Features
 --------
