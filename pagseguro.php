@@ -78,7 +78,7 @@ class pagseguro extends PaymentModule {
             return false;
 
         $execute = Db::getInstance()->Execute("
-            CREATE TABLE IF NOT EXISTS `"._DB_PREFIX_."pagseguro_order` (
+            CREATE TABLE IF NOT EXISTS `" . _DB_PREFIX_ . "pagseguro_order` (
               `id_pagseguro_order` int(11) NOT NULL AUTO_INCREMENT,
               `id_order` int(10) DEFAULT NULL,
               `id_transaction` char(108) DEFAULT NULL,
@@ -309,7 +309,7 @@ class pagseguro extends PaymentModule {
 
     public function execPayment($cart) {
         global $cookie, $smarty;
- 
+
         try {
             // Register this payment request in PagSeguro, to obtain the payment URL for redirect your customer.
             $invoiceAddress = new Address(intval($cart->id_address_invoice));
@@ -332,7 +332,7 @@ class pagseguro extends PaymentModule {
                     'total' => number_format(Tools::convertPrice($cart->getOrderTotal(true, 3), $currency), 2, '.', ''),
                     'pagamento' => "/modules/pagseguro/validation.php",
                     'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ?
-                    'https://' : 'http://') . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8') . __PS_BASE_URI__ . 'modules/' . $this->name . '/'));
+                            'https://' : 'http://') . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8') . __PS_BASE_URI__ . 'modules/' . $this->name . '/'));
         } catch (Exception $e) {
             $smarty->assign("error", true);
             Tools::displayError('An error ocurred!');
@@ -357,10 +357,10 @@ class pagseguro extends PaymentModule {
         $transaction_code = Tools::getValue('transaction_id');
         $id_order = Tools::getValue("id_order");
 
-        if( $transaction_code ){
-            Db::getInstance()->Execute("INSERT INTO `"._DB_PREFIX_."pagseguro_order` VALUES (NULL, {$id_order}, '{$transaction_code}');");
+        if ($transaction_code) {
+            Db::getInstance()->Execute("INSERT INTO `" . _DB_PREFIX_ . "pagseguro_order` VALUES (NULL, {$id_order}, '{$transaction_code}');");
         }
-        
+
         $objOrder = new Order($id_order);
 
         //$transaction_code = Db::getInstance()->getValue("SELECT id_transaction FROM " . _DB_PREFIX_ . "pagseguro_order WHERE id_order = {$id_order} ");
@@ -388,7 +388,6 @@ class pagseguro extends PaymentModule {
                 $objOrderHistory->changeIdOrderState($order_state, $id_order);
                 $objOrderHistory->addWithemail(true, $mailVars);
             }
-            
         } catch (PagSeguroServiceException $e) {
             return false;
             die($e->getMessage());
@@ -440,7 +439,7 @@ class pagseguro extends PaymentModule {
         return $retorno;
     }
 
-    public function inicializaPagamento($cart, $urlRetorno){
+    public function inicializaPagamento($cart, $urlRetorno) {
         require_once "PagSeguroLibrary/PagSeguroLibrary.php";
         $paymentRequest = new PagSeguroPaymentRequest();
         $paymentRequest->setCurrency("BRL");
