@@ -56,7 +56,7 @@ function TransactionNotification($notificationCode) {
         $history->addWithemail(true, $extraVars);
         die("Sucesso!");
     } catch (PagSeguroServiceException $e) {
-        var_dump($e);
+        file_put_contents( dirname(__FILE__) . "/error.log", var_export($e, true));
         die("Error!");
     }
 }
