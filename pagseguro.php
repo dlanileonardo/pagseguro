@@ -206,7 +206,7 @@ class pagseguro extends PaymentModule {
 
     public function displayPagSeguro() {
         $this->_html .= '
-		<img src="../modules/pagseguro/imagens/pagseguro.jpg" style="float:left; margin-right:15px;" />
+		<img src="' . __PS_BASE_URI__ . 'modules/pagseguro/imagens/pagseguro.jpg" style="float:left; margin-right:15px;" />
 		<b>' . $this->l('Este módulo permite aceitar pagamentos via PagSeguro.') . '</b><br /><br />
 		' . $this->l('Se o cliente escolher o módulo de pagamento, a conta do PagSeguro sera automaticamente creditado.') . '<br />
 		' . $this->l('Você precisa configurar o seu e-mail do PagSeguro, para depois usar este módulo.') . '
@@ -325,13 +325,13 @@ class pagseguro extends PaymentModule {
                     'error' => false,
                     'currency_default' => new Currency(Configuration::get('PS_CURRENCY_DEFAULT')),
                     'currencies' => $currencies_used,
-                    'imgBtn' => "/modules/pagseguro/imagens/pagseguro.jpg",
+                    'imgBtn' => __PS_BASE_URI__ . "modules/pagseguro/imagens/pagseguro.jpg",
                     'imgBnr' => "https://pagseguro.uol.com.br/Imagens/Banners/" .
                     $this->_banners[Configuration::get('PAGSEGURO_BANNER')],
                     'currency_default' => new Currency(Configuration::get('PS_CURRENCY_DEFAULT')),
                     'currencies' => $currencies_used,
                     'total' => number_format(Tools::convertPrice($cart->getOrderTotal(true, 3), $currency), 2, '.', ''),
-                    'pagamento' => "/modules/pagseguro/validation.php",
+                    'pagamento' => __PS_BASE_URI__ . "modules/pagseguro/validation.php",
                     'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ?
                     'https://' : 'http://') . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8') . __PS_BASE_URI__ . 'modules/' . $this->name . '/'));
         } catch (Exception $e) {
@@ -345,9 +345,9 @@ class pagseguro extends PaymentModule {
     public function hookPayment($params) {
         global $smarty;
         $smarty->assign(array(
-            'imgBtn' => "modules/pagseguro/imagens/btnfinalizaBR.jpg",
+            'imgBtn' => __PS_BASE_URI__ . "modules/pagseguro/imagens/btnfinalizaBR.jpg",
             'this_path' => $this->_path, 'this_path_ssl' => (Configuration::get('PS_SSL_ENABLED') ?
-                    'https://' : 'http://') . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8') . __PS_BASE_URI__ . 'modules/' . $this->name . '/'));
+            'https://' : 'http://') . htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8') . __PS_BASE_URI__ . 'modules/' . $this->name . '/'));
         return $this->display(__file__, 'payment.tpl');
     }
 
