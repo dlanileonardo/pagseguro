@@ -87,9 +87,9 @@ class pagseguro extends PaymentModule {
               UNIQUE KEY `Unique` (`id_order`,`id_transaction`)
             ) AUTO_INCREMENT=0 ;
         ");
+        
+        $this->create_states();
 
-        if (!Configuration::get('PAGSEGURO_STATUS_1'))
-            $this->create_states();
         if (!Configuration::updateValue('PAGSEGURO_BUSINESS', 'pagseguro@seudominio.com.br')
                 OR !Configuration::updateValue('PAGSEGURO_TOKEN', '')
                 OR !Configuration::updateValue('PAGSEGURO_BTN', 0)
@@ -101,12 +101,13 @@ class pagseguro extends PaymentModule {
 
     public function create_states() {
         $this->order_state = array(
-            array('c9fecd', '11110', 'PagSeguro - Completo', 'payment'),
-            array('ccfbff', '00100', 'PagSeguro - Aguardando Pagto', ''),
-            array('ffffff', '10100', 'PagSeguro - Aprovado', ''),
-            array('fcffcf', '00100', 'PagSeguro - Em análise', ''),
-            array('fec9c9', '11110', 'PagSeguro - Cancelado', 'order_canceled'),
-            array('d6d6d6', '00100', 'PagSeguro - Em Aberto', '')
+            1 => array('ccfbff', '00100', 'PagSeguro - Aguardando Pagto', ''),
+            2 => array('fcffcf', '00100', 'PagSeguro - Em análise', ''),
+            3 => array('ffffff', '10100', 'PagSeguro - Aprovado', ''),
+            4 => array('c9fecd', '11110', 'PagSeguro - Completo', 'payment'),
+            5 => array('c9fecd', '11110', 'PagSeguro - Em Disputa', 'order_canceled'),
+            6 => array('d6d6d6', '00100', 'PagSeguro - Em Aberto', ''),
+            7 => array('fec9c9', '11110', 'PagSeguro - Cancelado', 'order_canceled'),
         );
 
         /** INSTALANDO STATUS PagSeguro * */
@@ -131,10 +132,23 @@ class pagseguro extends PaymentModule {
                     return false;
                 }
             }
+
             /** GRAVA AS CONFIGURAÇÕES  * */
-            Configuration::updateValue("PAGSEGURO_STATUS_$key", (int) $orderState->id);
+            Configuration::updateValue("PAGSEGURO_STATUS_{$key}", (int) $orderState->id);
         }
 
+        return true;
+    }
+
+    private function delete_states() {
+        $keys = array(1,2,3,4,5,6,7);
+        foreach ($keys as $key) {
+            $id_state = (integer) Configuration::get("PAGSEGURO_STATUS_{$key}");
+            $objectState = new OrderState($id_state);
+            $objectState->deleted = 1;
+            $objectState->update();
+            Configuration::deleteByName("PAGSEGURO_STATUS_{$key}");
+        }
         return true;
     }
 
@@ -145,6 +159,7 @@ class pagseguro extends PaymentModule {
                 OR !Configuration::deleteByName('PAGSEGURO_TOKEN')
                 OR !Configuration::deleteByName('PAGSEGURO_BTN')
                 OR !Configuration::deleteByName('PAGSEGURO_BANNER')
+                OR !$this->delete_states()
                 OR !parent::uninstall()
         )
             return false;

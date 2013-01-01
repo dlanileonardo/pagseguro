@@ -22,7 +22,7 @@ $mailVarsValidate = array
 $pagseguro->validateOrder
 (
     $cart->id, 
-    Configuration::get('PAGSEGURO_STATUS_5'), 
+    Configuration::get('PAGSEGURO_STATUS_6'), 
     $total, 
     $pagseguro->displayName, 
     NULL, 
@@ -42,11 +42,11 @@ $mailVars   = array
     '{lastname}'        => stripslashes($customer->lastname ),
     '{terceiro}'        => stripslashes($pagseguro->displayName),
     '{id_order}'        => stripslashes($pagseguro->currentOrder),
-    '{status}'          => stripslashes($pagseguro->getStatus(Configuration::get('PAGSEGURO_STATUS_5'))),
+    '{status}'          => stripslashes($pagseguro->getStatus(Configuration::get('PAGSEGURO_STATUS_6'))),
     '{link}'            => $pagseguro->getUrlByMyOrder($order)
 );
 
-$assunto    = $pagseguro->getStatus(Configuration::get('PAGSEGURO_STATUS_5'));
+$assunto = $pagseguro->getStatus(Configuration::get('PAGSEGURO_STATUS_6'));
 
 $pagseguro->enviar($mailVars, 'pagseguro_first', $assunto, $pagseguro->displayName, $idCustomer, $idLang, $customer->email, 'mails/');
 

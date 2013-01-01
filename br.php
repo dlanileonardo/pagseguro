@@ -26,7 +26,6 @@ $_MODULE['<{pagseguro}prestashop>pagseguro_eb7a0fed691fc71db1ac92407ca5430a'] = 
 $_MODULE['<{pagseguro}prestashop>pagseguro_6ff29916f99fff9d2494d28e721ae77e'] = 'Banner';
 $_MODULE['<{pagseguro}prestashop>payment_2c76b8cca6c7dd557b282ee2f7c3af44'] = 'Pague com PagSeguro';
 $_MODULE['<{pagseguro}prestashop>payment_execution_a40cab5994f36d4c48103a22ca082e8f'] = 'Seu carrinho de compras';
-$_MODULE['<{pagseguro}prestashop>payment_execution_ad69e733ebae8d264bccaa38d68830e8'] = 'PayPal';
 $_MODULE['<{pagseguro}prestashop>payment_execution_f1d3b424cd68795ecaa552883759aceb'] = 'Resumo do pedido';
 $_MODULE['<{pagseguro}prestashop>payment_execution_e923dd37a15644a86b4ba3ad9718160c'] = 'Pagamento via PagSeguro';
 $_MODULE['<{pagseguro}prestashop>payment_execution_5e15a6fb0f2e1fdeb37d35737f01088a'] = 'PagSeguro';
