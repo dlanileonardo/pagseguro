@@ -41,10 +41,7 @@
     
 	<p class="cart_navigation pull-left">
 		<a href="{$base_dir_ssl}order.php?step=3" class="button_large btn">{l s='Outras formas de pagamento' mod='pagseguro'}</a>
-		{*<input type="submit" name="submit" value="{l s='Confirmar Compra' mod='pagseguro'}" class="exclusive_large" />*}
+		<a href="{$pagamento}" class="exclusive_large" >{l s='Pagar agora' mod='pagseguro'}</a>
     </p>
-    <p class="cart_navigation pull-right">
-        <a href="{$pagamento}" class="btn btn-primary" >{l s='Pagar agora' mod='pagseguro'}</a>
-	</p>
 </form>
 {/if}
