@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dlanileonardo/correios.png)](https://travis-ci.org/dlanileonardo/correios)
+[![Build Status](https://travis-ci.org/dlanileonardo/pagseguro.png)](https://travis-ci.org/dlanileonardo/pagseguro)
 
 Módulo Pagseguro
 ================
