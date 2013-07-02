@@ -1,7 +1,0 @@
-<phpunit>
-	<testsuites>
-		<testsuite name="Pagseguro">
-			<file>tests/pagseguro.php</file>
-		</testsuite>
-	</testsuites>
-</phpunit>

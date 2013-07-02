@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit>
+    <testsuites>
+        <testsuite name="pagseguro">
+            <file>tests/pagseguro.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>
