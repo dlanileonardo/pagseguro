@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/dlanileonardo/pagseguro.png)](https://travis-ci.org/dlanileonardo/pagseguro)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/dlanileonardo/pagseguro/badges/quality-score.png?s=4efe7bb52542ff5f25d10a6684daea43905d9b5a)](https://scrutinizer-ci.com/g/dlanileonardo/pagseguro/)
 
 Módulo Pagseguro
 ================
