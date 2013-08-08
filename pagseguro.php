@@ -368,7 +368,7 @@ class pagseguro extends PaymentModule {
 
     public function hookPaymentReturn($params) {
         global $smarty, $cookie;
-        require_once "PagSeguroLibrary/PagSeguroLibrary.php";
+        require_once "vendor/PagSeguroLibrary/PagSeguroLibrary.php";
 
         $transaction_code = Tools::getValue('transaction_id');
         $id_order = Tools::getValue("id_order");
@@ -457,7 +457,7 @@ class pagseguro extends PaymentModule {
     }
 
     public function inicializaPagamento($cart, $urlRetorno){
-        require_once "PagSeguroLibrary/PagSeguroLibrary.php";
+        require_once "vendor/PagSeguroLibrary/PagSeguroLibrary.php";
         $paymentRequest = new PagSeguroPaymentRequest();
         $paymentRequest->setCurrency("BRL");
 
