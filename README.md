@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/dlanileonardo/pagseguro.png)](https://travis-ci.org/dlanileonardo/pagseguro)
+[![Coverage Status](https://coveralls.io/repos/dlanileonardo/pagseguro/badge.png)](https://coveralls.io/r/dlanileonardo/pagseguro)
+[![Latest Stable Version](https://poser.pugx.org/dlanileonardo/pagseguro/v/stable.png)](https://packagist.org/packages/dlanileonardo/pagseguro)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/dlanileonardo/pagseguro/badges/quality-score.png?s=4efe7bb52542ff5f25d10a6684daea43905d9b5a)](https://scrutinizer-ci.com/g/dlanileonardo/pagseguro/)
 
 Módulo Pagseguro
