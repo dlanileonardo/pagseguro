@@ -46,3 +46,7 @@ Isenção de Responsabilidade
 ---------------------------
 
 Este software é gratuito e não está associado com o PagSeguro. PagSeguro é uma marca registrada da empresa UOL. Este módulo não é afiliado com a UOL e portanto não é um produto oficial do PagSeguro.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dlanileonardo/pagseguro/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
